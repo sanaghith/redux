@@ -6,12 +6,18 @@ const initialState = {
 };
 
 // Use the initialState as a default value
-export default function counterReducer(state = initialState.counter , action) {
+export default function counterReducer(state = initialState , action) {
   switch (action.type) {
     case INCREMENT:
-        return state + 1;
+        return {
+          ...state ,
+          counter : state.counter +1
+        } 
     case DECREMENT:
-        return state - 1;
+        return {
+          ...state ,
+          counter : state.counter -1
+        };
       
     default:
       return state;
